@@ -10,6 +10,12 @@ javac -d target/classes $files
 java -cp target/classes org.parkinglot.ParkingLotApplication
 ```
 
+Run tests when Maven is available:
+
+```bash
+mvn test
+```
+
 ## Data Model
 
 In-memory repository in this implementation:

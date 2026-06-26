@@ -13,24 +13,20 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class ParkingLotManager {
-    // The single, static instance of the manager
     private static ParkingLotManager instance;
 
-    // Non-static dependencies are perfectly safe here
     private final ParkingRepository repository;
     private final SpotAllocationStrategy allocationStrategy;
     private final FeeCalculationStrategy feeStrategy;
 
-    // Private constructor ensures instantiation only happens here
-    private ParkingLotManager(ParkingRepository repository,
-                              SpotAllocationStrategy allocationStrategy,
-                              FeeCalculationStrategy feeStrategy) {
+    public ParkingLotManager(ParkingRepository repository,
+                             SpotAllocationStrategy allocationStrategy,
+                             FeeCalculationStrategy feeStrategy) {
         this.repository = repository;
         this.allocationStrategy = allocationStrategy;
         this.feeStrategy = feeStrategy;
     }
 
-    // Thread-safe Singleton initialization
     public static synchronized ParkingLotManager getInstance(
             ParkingRepository repository,
             SpotAllocationStrategy allocationStrategy,
